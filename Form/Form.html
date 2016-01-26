@@ -1,0 +1,85 @@
+<head>
+    <title>Form</title>
+</head>
+<body >
+<div id="top-bar">
+<div class="fixed-width">
+
+</div>
+</div>
+    {{#if currentUser}}
+        {{> dashboard}}
+    {{else}}
+        {{> register}}
+        {{> login}}
+		{{> recovery}}
+    {{/if}}
+	
+	
+</body>
+
+
+<template name="register" >
+
+<br> <br> <br>  <center> <h1> <u> Register </u> </h1> </center>
+    <form>
+	<br> <br>
+      <center>  
+	 Email id: <input type="email" name="registerEmail"> <br> <br>
+	 Username: <input type="text" name="username"> <br> <br>
+     Password:  <input type="password" name="registerPassword"> <br> <br>
+        <input type="submit" value="Register">
+		</center>
+    </form>
+	
+
+</template>
+
+<template name="login">
+
+<br> <br> <br> <center> <h1> <u> Login </u> </h1> </center>
+    <form>
+<br> <br>
+    <center> Email or username :  <input type="text" name="UnameEmail"> <br> <br>
+     Password: <input type="password" name="loginPassword"> <br> <br>
+        <input type="submit" value="Login"> <br> <br>
+		</center>
+    </form>
+
+</template>
+
+<template name="dashboard">
+    <center> <p class="dash">You're logged in.</p>
+     <p class="dash"><a href="#" class="logout">Logout</a></p> </center>
+
+	 
+	 </template>
+
+
+<template name="recovery" >
+{{#if resetPassword}}
+<center> <h6> Password Change </h6>
+<form id="new-password" action="action">
+<div>
+<div>
+<input type="text" name="newpwd" id="new-password-password"> <br> <br>
+<input type="submit" name="form-control" id="Change Password" value="Change password">
+</div>
+</div>
+</form>
+</center>
+
+{{else}}
+<center> <h3> Forgot Password </h3> </center>
+<center> <form id="recovery-form" action="action">
+<div class = "row">
+<div>
+Email: <input type="text" name="form-control" id="recovery-email"> <br> <br>
+<input type="submit" name="form-control" id="Change Password" value="Send Reset Instructions">
+</div>
+</div>
+</form>
+</center>
+{{/if}}
+
+</template>
